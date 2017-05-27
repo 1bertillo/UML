@@ -67,15 +67,6 @@ public class UMLDiagram {
         return primitiveType;
     }
     
-
-//	 public Model createModel(String name) {
-//	 Model model = UMLFactory.eINSTANCE.createModel();
-//	 model.setName(name);
-//	
-//	 out("Model '%s' created.", model.getQualifiedName());
-//	
-//	 return model;
-//	 }
 	public org.eclipse.uml2.uml.Class createClass(String name) {
 		org.eclipse.uml2.uml.Class class_ = this.model.createOwnedClass(name, false);
 
@@ -166,10 +157,9 @@ public class UMLDiagram {
 		// which case these registrations are discovered automatically from
 		// Eclipse extension points.
 		//UMLResourcesUtil.init(resourceSet);
+		URI uri =  URI.createFileURI(System.getProperty("user.dir"));
 
 		// Create the output resource and add our model package to it.
-		URI uri=URI.createFileURI("C:/Users/Berto/workspace/com.uniovi.Esperanto/GeneratedModel").appendSegment("ExtendedPO2").appendFileExtension(UMLResource.FILE_EXTENSION);
-		System.out.println("Diagram saved in : "+uri);
 		Resource resource = resourceSet.createResource(uri);
 		resource.getContents().add(this.model);
 
